@@ -10,15 +10,15 @@ const formConf = {
         __formRef: helper.input_text("表单名", 'refForm'),
         __formModel: helper.input_text("表单模型", 'formData'),
         size: helper.input_radio("表单尺寸", [{
-            key: "medium",
-            value: "中等"
+            key: "default",
+            value: "默认"
+        }, {
+            key: "large",
+            value: "较大"
         }, {
             key: "small",
             value: "较小"
-        }, {
-            key: "mini",
-            value: "迷你"
-        }], "medium"),
+        }], "default"),
         labelPosition: helper.input_radio("标签对齐", [{
             key: "right",
             value: "右对齐"

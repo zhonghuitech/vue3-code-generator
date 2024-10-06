@@ -69,11 +69,11 @@ const input_range = function (label, min, max, val) {
 }
 
 
-export const input_radio = function (label, opts, val) {
+export const input_radio = function (value, opts, val) {
     const __child = {
         tag: "el-radio-button",
         keyValue: {
-            "key": "label",
+            "key": "value",
             "value": "__default__"
         }
     }
@@ -81,13 +81,13 @@ export const input_radio = function (label, opts, val) {
     return {
         __val__: val,
         input_type: "input_radio",
-        label,
+        value,
         opts,
         __child
     }
 
 }
-const input_select = function (label, opts, val) {
+const input_select = function (value, opts, val) {
     const __child = {
         tag: "el-option",
         keyValue: {
@@ -100,7 +100,7 @@ const input_select = function (label, opts, val) {
     return {
         __val__: val,
         input_type: "input_select",
-        label,
+        value,
         opts,
         __child
     }
@@ -128,13 +128,12 @@ const optValue = function (tag) {
     }
 
 }
-const input_opt = function (label, tag) {
+const input_opt = function (value, tag) {
 
     return {
         __val__: optValue(tag),
         input_type: "input_opt",
-        label
-
+        value
     }
 }
 

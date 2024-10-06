@@ -164,7 +164,7 @@ export default defineComponent({
       );
       // save();
     };
-    watch([required])
+    watchEffect([required])
     return {
       data,
       addItem,

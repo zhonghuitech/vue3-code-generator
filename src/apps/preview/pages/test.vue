@@ -8,11 +8,11 @@
             </el-input>
         </el-form-item>
         <el-form-item label-width="100" label="单选框" prop="field_BBn8G">
-            <el-checkbox-group v-model="formData.field_BBn8G" :border="true" size="medium">
-                <el-checkbox-button label="1">
+            <el-checkbox-group v-model="formData.field_BBn8G" :border="true" size="default">
+                <el-checkbox-button value="1">
                     <template slot="default">选项一</template>
                 </el-checkbox-button>
-                <el-checkbox-button label="2">
+                <el-checkbox-button value="2">
                     <template slot="default">选项二</template>
                 </el-checkbox-button>
             </el-checkbox-group>
@@ -33,7 +33,7 @@
             <el-col span="8" style="min-height:60px" component="el-col" group="componentsGroup" class="drag-wrapper box"
                 animation="340">
                 <el-form-item :show-label="true" label-width="100" label="单选框" prop="field_tDuuI">
-                    <el-radio-group v-model="formData.field_tDuuI" :border="true" size="medium">
+                    <el-radio-group v-model="formData.field_tDuuI" :border="true" size="default">
                         <el-radio-button value="1">
                             <template slot="default">选项一</template>
                         </el-radio-button>
@@ -46,7 +46,7 @@
             <el-col span="8" style="min-height:60px" component="el-col" group="componentsGroup" class="drag-wrapper box"
                 animation="340">
                 <el-form-item :show-label="true" label-width="100" label="单选框" prop="field_Zt6al">
-                    <el-radio-group v-model="formData.field_Zt6al" :border="true" size="medium">
+                    <el-radio-group v-model="formData.field_Zt6al" :border="true" size="default">
                         <el-radio-button value="1">
                             <template slot="default">选项一</template>
                         </el-radio-button>
@@ -105,7 +105,7 @@
             </el-input-number>
         </el-form-item>
         <el-form-item :show-label="true" label-width="100" label="单选框" prop="field_UBqgb">
-            <el-radio-group v-model="formData.field_UBqgb" :border="true" size="medium">
+            <el-radio-group v-model="formData.field_UBqgb" :border="true" size="default">
                 <el-radio-button value="1">
                     <template slot="default">选项一</template>
                 </el-radio-button>
@@ -143,11 +143,11 @@
             </el-select>
         </el-form-item>
         <el-form-item :show-label="true" label-width="100" label="单选框" prop="field_D6fZr">
-            <el-checkbox-group v-model="formData.field_D6fZr" :border="true" size="medium">
-                <el-checkbox-button label="1">
+            <el-checkbox-group v-model="formData.field_D6fZr" :border="true" size="default">
+                <el-checkbox-button value="1">
                     <template slot="default">选项一</template>
                 </el-checkbox-button>
-                <el-checkbox-button label="2">
+                <el-checkbox-button value="2">
                     <template slot="default">选项二</template>
                 </el-checkbox-button>
             </el-checkbox-group>

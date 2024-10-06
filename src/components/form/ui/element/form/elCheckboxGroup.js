@@ -19,15 +19,15 @@ export default {
         border: helper.input_boolean("占位字符", true),
 
         size: helper.input_radio("尺寸", [{
-            key: "medium",
-            value: "中等"
+            key: "default",
+            value: "默认"
+        }, {
+            key: "large",
+            value: "较大"
         }, {
             key: "small",
             value: "较小"
-        }, {
-            key: "mini",
-            value: "迷你"
-        }], "medium"),
+        }], "default"),
 
     },
 

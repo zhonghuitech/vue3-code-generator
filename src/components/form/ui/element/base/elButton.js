@@ -14,15 +14,15 @@ export default {
         attrs: {
                 fieldName: helper.input_text("字段名", "字段名"),
                 'size': helper.input_radio('尺寸', [{
-                        "key": "medium",
-                        "value": "medium"
+                        "key": "default",
+                        "value": "默认"
+                }, {
+                        "key": "large",
+                        "value": "较大"
                 }, {
                         "key": "small",
-                        "value": "small"
-                }, {
-                        "key": "mini",
-                        "value": "mini"
-                }], ''),
+                        "value": "较小"
+                }], 'default'),
                 'type': helper.input_radio('类型', [{
                         "key": "primary",
                         "value": "primary"
@@ -41,7 +41,7 @@ export default {
                 }, {
                         "key": "text",
                         "value": "text"
-                }], ''),
+                }], 'primary'),
                 'plain': helper.input_boolean('是否朴素按钮', false),
                 'round': helper.input_boolean('是否圆角按钮', false),
                 'circle': helper.input_boolean('是否圆形按钮', false),
