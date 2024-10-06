@@ -6,7 +6,7 @@
 </template>
 
 <script>
-const modules = import.meta.globEager("../icons/svg/*.svg");
+const modules = import.meta.glob("../icons/svg/*.svg", { eager: true });
 
 // doc: https://panjiachen.github.io/vue-element-admin-site/feature/component/svg-icon.html#usage
 function isExternal(path) {

@@ -3,7 +3,7 @@ import { createRouter, createWebHashHistory } from "vue-router";
 const home = () => import('./test.vue');
 
 
-const pages = import.meta.globEager('./pages/*.vue');
+const pages = import.meta.glob('./pages/*.vue', { eager: true });
 
 console.log(pages)
 // const login = () => import('./pages/login.vue');

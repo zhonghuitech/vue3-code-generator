@@ -44,13 +44,13 @@ const elements = {
 };
 
 let files =
-    import.meta.globEager('./element/form/*.js');
+    import.meta.glob('./element/form/*.js', { eager: true });
 
 
 for (const key in files) {
     elements.form.eles.push(files[key].default)
 }
-files = import.meta.globEager('./element/base/*.js');
+files = import.meta.glob('./element/base/*.js', { eager: true });
 
 
 for (const key in files) {
