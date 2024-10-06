@@ -6,7 +6,9 @@
           <img v-for="f in files" :src="f.url" class="avatar" :key="f.url" />
         </template>
 
-        <el-icon v-else class="avatar-uploader-icon"><plus /></el-icon>
+        <el-icon v-else class="avatar-uploader-icon">
+          <plus />
+        </el-icon>
       </template>
       <i v-else class="el-icon-upload">
         <div class="el-upload__text" style="font-size: 14px">
@@ -137,6 +139,7 @@ export default defineComponent({
   margin: 40px 0 16px;
   line-height: 50px;
 }
+
 .avatar {
   max-width: 100%;
 }

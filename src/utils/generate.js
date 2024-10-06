@@ -47,7 +47,7 @@ class Scripts {
 
     }
 
-    definedVar(name,val){
+    definedVar(name, val) {
         this.vars.add(`const ${name}=ref(${val})`)
     }
     addRules(rules) {
@@ -400,6 +400,7 @@ const renderBtns = function (ele, js) {
 
     }
 }
+
 const toHtml = function (ele, js) {
     if (ele.attrs.fieldName) {
         js.formData.add([ele.attrs.fieldName, ele.defaultvalue]);
@@ -448,7 +449,7 @@ const generate = function (settings) {
     const js = new Scripts();
     let html = toHtml(element, js);
 
-    js.definedVar(element.attrs.__formRef,'null');
+    js.definedVar(element.attrs.__formRef, 'null');
 
     return ["<template>", html_beautify(html), '</template>', "<script setup>", js_beautify(js.render()), "</script>"].join("\n")
 

@@ -15,7 +15,7 @@ export default {
         },
         slots: {
         },
-      
+
         ctrlBtn: false,
         name: "滚动条",
         __openRules: false,

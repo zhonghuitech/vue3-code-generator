@@ -10,25 +10,18 @@
                 <el-form-item v-for="(func, title) in currentItem.actions" :key="title">
                   <el-button @click="func(currentItem)">{{ title }}</el-button>
                 </el-form-item>
-                <template
-                    v-for="(item, index) in eleRenderSetFormat(currentItem)"
-                    :key="index + '-' + currentItem.__ID"
-                >
+                <template v-for="(item, index) in eleRenderSetFormat(currentItem)"
+                  :key="index + '-' + currentItem.__ID">
                   <!-- {{item}} -->
                   <element-render @update="updateEleSet" v-bind="item"></element-render>
                 </template>
               </el-form>
 
-                <el-divider>验证规则</el-divider>
-                <rules-input
-                    :openRule="currentItem.__openRules"
-                    v-if="currentItem.tag !== 'draggable'"
-                    :fieldName="currentItem.attrs.fieldName.__val__"
-                    v-model="modelValue.formConf.__rules"
-                ></rules-input>
+              <el-divider>验证规则</el-divider>
+              <rules-input :openRule="currentItem.__openRules" v-if="currentItem.tag !== 'draggable'"
+                :fieldName="currentItem.attrs.fieldName.__val__" v-model="modelValue.formConf.__rules"></rules-input>
 
-              <el-button type="primary" size="mini" @click="deleteItem(currentItem.__ID)"
-              >删除
+              <el-button type="primary" size="mini" @click="deleteItem(currentItem.__ID)">删除
               </el-button>
             </template>
           </el-scrollbar>
@@ -41,14 +34,10 @@
             <el-form ref="form" size="mini" label-position="top" label-width="80px">
               <template v-for="(item, index) in formConf" :key="index">
                 <!-- {{index}} -->
-                <element-render
-                    @update="
-                    (e) => {
-                      modelValue.formConf.attrs[index]['__val__'] = e;
-                    }
-                  "
-                    v-bind="eleRenderFormat(item)"
-                ></element-render>
+                <element-render @update="(e) => {
+                    modelValue.formConf.attrs[index]['__val__'] = e;
+                  }
+                  " v-bind="eleRenderFormat(item)"></element-render>
 
               </template>
               <el-form-item label="接口地址">
@@ -62,15 +51,15 @@
   </div>
 </template>
 <script>
-import {ref, defineComponent, toRaw, computed, inject, watch} from "vue";
+import { ref, defineComponent, toRaw, computed, inject, watch } from "vue";
 
-import {eleRenderFormat, eleRenderSetFormat} from "@/utils/utils.js";
-import {findEle, isObjectArray, deepClone, randFieldId} from "@/utils/func.js";
+import { eleRenderFormat, eleRenderSetFormat } from "@/utils/utils.js";
+import { findEle, isObjectArray, deepClone, randFieldId } from "@/utils/func.js";
 import RulesInput from "@/components/form/RulesInput.vue";
 import ElementRender from "@/components/form/ElementRender.vue";
 
 export default defineComponent({
-  components: {ElementRender, RulesInput},
+  components: { ElementRender, RulesInput },
   name: "page-setting",
   props: ["modelValue"],
   emits: ["update:modelValue"],

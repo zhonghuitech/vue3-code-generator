@@ -1,37 +1,16 @@
 <template>
   <!-- {{ modelValue.drawingList }} -->
 
-  <el-form
-    :model="formModel"
-    v-bind="formSetting"
-    :gutter="modelValue.formConf.gutter"
-  >
-    <draggable
-      class="drawing-board"
-      style="padding: 10px; height: 100%"
-      :list="modelValue.drawingList"
-      :animation="340"
-      group="componentsGroup"
-      @change="onEnd"
-    >
-      <template
-        v-for="(item, index) in conf.drawingList"
-        :key="item.__ID + index"
-      >
+  <el-form :model="formModel" v-bind="formSetting" :gutter="modelValue.formConf.gutter">
+    <draggable class="drawing-board" style="padding: 10px; height: 100%" :list="modelValue.drawingList" :animation="340"
+      group="componentsGroup" @change="onEnd">
+      <template v-for="(item, index) in conf.drawingList" :key="item.__ID + index">
         <!-- {{item}} -->
-        <element-render
-          @click.stop="selected(item.__ID)"
-          @update="changeValue"
-          :currentID="modelValue.current"
-          v-bind="item"
-          class="item-tool-box"
-        ></element-render>
+        <element-render @click.stop="selected(item.__ID)" @update="changeValue" :currentID="modelValue.current"
+          v-bind="item" class="item-tool-box"></element-render>
       </template>
 
-      <el-empty
-        v-if="conf.drawingList.length < 1"
-        description="从左侧拖入或点选组件进行表单设计"
-      ></el-empty>
+      <el-empty v-if="conf.drawingList.length < 1" description="从左侧拖入或点选组件进行表单设计"></el-empty>
 
       <template v-else>
         <el-form-item v-if="conf.formConf.attrs.__formBtns.__val__">
@@ -125,22 +104,26 @@ export default defineComponent({
   background: #f56c6c;
   color: #fff;
 }
+
 .tool-btn-copy:hover {
   background: #409eff;
   color: #fff;
 }
+
 .tool-btn-del {
   right: 24px;
   border-color: #f56c6c;
   color: #f56c6c;
   background: #fff;
 }
+
 .tool-btn-copy {
   right: 56px;
   border-color: #409eff;
   color: #409eff;
   background: #fff;
 }
+
 .tool-btn {
   display: initial;
   position: absolute;
@@ -155,16 +138,20 @@ export default defineComponent({
   cursor: pointer;
   z-index: 15;
 }
+
 .item-tool-box {
   position: relative;
 }
+
 .el-scrollbar__view {
   height: 100%;
 }
+
 .item-attribute {
   padding: 10px;
   border: 1px solid black;
 }
+
 .clone-grid {
   display: flex;
 }

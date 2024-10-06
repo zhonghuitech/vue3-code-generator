@@ -4,11 +4,7 @@
       <div class="logo-wrapper">
         <div class="logo">
           Vue3 Form Generator
-          <a
-            class="github"
-            href="https://github.com/yupk/form-generator-vue3"
-            target="_blank"
-          >
+          <a class="github" href="https://github.com/yupk/form-generator-vue3" target="_blank">
             <img src="https://github.githubassets.com/pinned-octocat.svg" alt />
           </a>
         </div>
@@ -16,13 +12,10 @@
       <el-scrollbar class="left-scrollbar">
         <!-- {{generate(settings)}} -->
 
-        <page-panel
-          @addComponent="
-            (el) => {
-              settings.drawingList.push(el);
-            }
-          "
-        ></page-panel>
+        <page-panel @addComponent="(el) => {
+            settings.drawingList.push(el);
+          }
+          "></page-panel>
 
         <div class="components-list"></div>
       </el-scrollbar>
@@ -30,9 +23,7 @@
 
     <div class="center-board">
       <div class="action-bar">
-         
 
-  
         <div class="btn" @click="preViewCode">
           <el-icon>
             <video-play />
@@ -44,15 +35,16 @@
           </el-icon>清空
         </div>
 
-                     <div class="btn"    >
-         <el-switch v-model="device" active-text="电脑模式" inactive-text="手机模式" active-value="pc" inactive-value="mobile"		 />
-         
+        <div class="btn">
+          <el-switch v-model="device" active-text="电脑模式" inactive-text="手机模式" active-value="pc"
+            inactive-value="mobile" />
+
         </div>
 
+        <div class="btn">
+          <el-switch v-model="preview" active-text="开发模式" inactive-text="预览模式" active-value=""
+            inactive-value="preview" />
 
-        <div class="btn"    >
-         <el-switch v-model="preview" active-text="开发模式" inactive-text="预览模式" active-value="" inactive-value="preview"		 />
-         
         </div>
       </div>
       <el-scrollbar class="center-scrollbar" :class="[device, preview]">
@@ -71,7 +63,7 @@
             <download />
           </el-icon>下载代码
         </div>
-
+        
         <div class="btn" @click="ClipboardWrite()">
           <el-icon>
             <document-copy />
@@ -81,8 +73,8 @@
     </template>
     <el-scrollbar height="600px" v-highlight>
       <pre>
-        <code> {{ generate(settings) }}</code>
-    </pre>
+    <code> {{ generate(settings) }}</code>
+  </pre>
     </el-scrollbar>
   </el-drawer>
 </template>
@@ -93,7 +85,7 @@ import PagePanel from "@/components/form/PagePanel.vue";
 import PageSetting from "@/components/form/PageSetting.vue";
 import useClipboard from 'vue-clipboard3';
 
-import {ElMessage} from 'element-plus';
+import { ElMessage } from 'element-plus';
 
 import { saveAs } from "file-saver";
 
@@ -112,7 +104,7 @@ import {
   Delete,
   Download,
   DocumentCopy
-} from  "@element-plus/icons-vue";
+} from "@element-plus/icons-vue";
 import { defineComponent, provide, reactive, ref, watch } from "vue";
 
 export default defineComponent({
@@ -192,7 +184,7 @@ export default defineComponent({
       _del(settings.drawingList, _id);
     };
 
- 
+
 
     const _copy = function (items, _id) {
       for (let item of items) {
@@ -239,11 +231,7 @@ export default defineComponent({
 
     }
 
-
     const { toClipboard } = useClipboard()
-
- 
-
     const ClipboardWrite = async () => {
 
       const codeStr = generate(settings);
@@ -255,9 +243,6 @@ export default defineComponent({
         console.error(e)
       }
     }
-
-    
- 
 
     watch(settings, () => {
       console.log(settings);
@@ -275,12 +260,11 @@ export default defineComponent({
       update,
       device,
       clearn,
-    
       preview,
       generate,
       execDownload,
       showCode,
-      preViewCode,ClipboardWrite
+      preViewCode, ClipboardWrite
     };
   },
 });

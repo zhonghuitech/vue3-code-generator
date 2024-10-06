@@ -1,31 +1,14 @@
 <template>
   <div class="icon-dialog">
-    <el-dialog
-        v-model="visible"
-        width="980px"
-
-        @open="onOpen"
-        @close="onClose"
-    >
+    <el-dialog v-model="visible" width="980px" @open="onOpen" @close="onClose">
       <div slot="title">
         选择图标
-        <el-input
-            v-model="key"
-            size="mini"
-            :style="{ width: '260px' }"
-            placeholder="请输入图标名称"
-            prefix-icon="el-icon-search"
-            clearable
-        />
+        <el-input v-model="key" size="mini" :style="{ width: '260px' }" placeholder="请输入图标名称"
+          prefix-icon="el-icon-search" clearable />
       </div>
       <ul ref="iconWrap" class="icon-ul">
-        <li
-            v-for="icon in iconList"
-            :key="icon"
-            :class="active === icon ? 'active-item' : ''"
-            @click="onSelect(icon)"
-        >
-          <i :class="icon"/>
+        <li v-for="icon in iconList" :key="icon" :class="active === icon ? 'active-item' : ''" @click="onSelect(icon)">
+          <i :class="icon" />
           <div>{{ icon }}</div>
         </li>
       </ul>
@@ -72,8 +55,8 @@ export default {
     scrollToActive() {
       this.$nextTick(() => {
         const $activeItem = setIcon
-            ? document.getElementsByClassName("active-item")[0]
-            : this.$refs.iconWrap.childNodes[0];
+          ? document.getElementsByClassName("active-item")[0]
+          : this.$refs.iconWrap.childNodes[0];
         $activeItem && $activeItem.scrollIntoView && $activeItem.scrollIntoView();
       });
     },
@@ -107,7 +90,7 @@ export default {
       color: #7a6df0;
     }
 
-    > i {
+    >i {
       font-size: 30px;
       line-height: 50px;
     }

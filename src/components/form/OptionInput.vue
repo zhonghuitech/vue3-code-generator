@@ -1,41 +1,34 @@
-
 <template>
   <el-tabs type="border-card" v-model="current">
     <el-tab-pane label="静态数据" name="static">
       <el-form size="small">
         <el-form-item>
-            <el-row>
-          <template v-for="(item, index) in staticData" :key="'index' + index">
-            <el-col :span="11">
-              <el-form-item
-                label="选项名"
-                :rules="{
+          <el-row>
+            <template v-for="(item, index) in staticData" :key="'index' + index">
+              <el-col :span="11">
+                <el-form-item label="选项名" :rules="{
                   required: true,
                   message: '不能为空',
                   trigger: 'blur',
-                }"
-              >
-                <el-input v-model="item.key"></el-input>
-              </el-form-item>
-            </el-col>
-            <el-col :span="11">
-              <el-form-item
-                label="选项值"
-                :rules="{
+                }">
+                  <el-input v-model="item.key"></el-input>
+                </el-form-item>
+              </el-col>
+              <el-col :span="11">
+                <el-form-item label="选项值" :rules="{
                   required: true,
                   message: '不能为空',
                   trigger: 'blur',
-                }"
-              >
-                <el-input v-model="item.value"></el-input>
-              </el-form-item>
-            </el-col>
-            <el-col :span="1" :offset="1" @click="delItem(index)">
-              <i class="el-icon-delete"></i>
-            </el-col>
-                 
-          </template>
-           </el-row>
+                }">
+                  <el-input v-model="item.value"></el-input>
+                </el-form-item>
+              </el-col>
+              <el-col :span="1" :offset="1" @click="delItem(index)">
+                <i class="el-icon-delete"></i>
+              </el-col>
+
+            </template>
+          </el-row>
         </el-form-item>
         <el-form-item>
           <el-button size="mini" @click.prevent="addItem">添加</el-button>
@@ -45,17 +38,9 @@
     <el-tab-pane label="动态数据" name="dynamic">
       <el-form size="small">
         <el-form-item label="接口地址">
-          <el-input
-            placeholder="请输入接口地址"
-            v-model="dynamicData.url"
-            class="input-with-select"
-          >
+          <el-input placeholder="请输入接口地址" v-model="dynamicData.url" class="input-with-select">
             <template #prepend>
-              <el-select
-                v-model="dynamicData.medth"
-                placeholder="请选择"
-                style="width: 80px"
-              >
+              <el-select v-model="dynamicData.medth" placeholder="请选择" style="width: 80px">
                 <el-option label="get" value="get"></el-option>
                 <el-option label="post" value="post"></el-option>
                 <el-option label="put" value="put"></el-option>
@@ -112,5 +97,4 @@ export default defineComponent({
 });
 </script>
 
-<style>
-</style>
+<style></style>

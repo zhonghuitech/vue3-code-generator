@@ -3,8 +3,9 @@
     <el-container direction="vertical">
       <el-row>
         <el-col :span="12">
-          {{files}}
-          <upload-warp uploadType="image" :auto-upload="true"   v-model="files"  action="https://www.vkandian.cn/index.php/index/upload">
+          {{ files }}
+          <upload-warp uploadType="image" :auto-upload="true" v-model="files"
+            action="https://www.vkandian.cn/index.php/index/upload">
 
           </upload-warp>
           <el-form>
@@ -24,34 +25,18 @@
             </el-form-item>
 
             <el-form-item label="容器">
-              <el-switch
-                v-model="isContainer"
-                :active-value="true"
-                :inactive-value="false"
-              />
+              <el-switch v-model="isContainer" :active-value="true" :inactive-value="false" />
             </el-form-item>
 
             <el-form-item label="开启自定义验证">
-              <el-switch
-                v-model="data.__openRules"
-                :active-value="true"
-                :inactive-value="false"
-              />
+              <el-switch v-model="data.__openRules" :active-value="true" :inactive-value="false" />
             </el-form-item>
             <el-form-item label="显示控制按钮">
-              <el-switch
-                v-model="data.ctrlBtn"
-                :active-value="true"
-                :inactive-value="false"
-              />
+              <el-switch v-model="data.ctrlBtn" :active-value="true" :inactive-value="false" />
             </el-form-item>
 
             <el-form-item label="开启formItem标签">
-              <el-switch
-                v-model="data.formItem"
-                :active-value="true"
-                :inactive-value="false"
-              />
+              <el-switch v-model="data.formItem" :active-value="true" :inactive-value="false" />
             </el-form-item>
             <el-form-item>
               <el-button @click="make" type="primary">生成</el-button>
@@ -61,10 +46,7 @@
         </el-col>
 
         <el-col :span="12">
-          <textarea
-            v-model="code"
-            style="width: 100%; height: 100%; border: none; padding: 20px;"
-          >
+          <textarea v-model="code" style="width: 100%; height: 100%; border: none; padding: 20px;">
           </textarea>
         </el-col>
       </el-row>
@@ -80,9 +62,9 @@ import { toHump } from "@/utils/func.js";
 import { saveAs } from "file-saver";
 
 export default {
-  components:{UploadWarp},
-  setup(props,ctx) {
-    const files=ref([])
+  components: { UploadWarp },
+  setup(props, ctx) {
+    const files = ref([])
     const code = ref("");
     const codeStr = ref("");
     const fileName = ref("");
@@ -124,7 +106,7 @@ export default {
       }
       for (let item of setts) {
         let strs = "";
-        if ( [ "string","number"].includes(item.type.toLowerCase())) {
+        if (["string", "number"].includes(item.type.toLowerCase())) {
           if (item.opt.length > 1) {
             let opt = JSON.stringify(
               item.opt.map((x) => {
@@ -136,7 +118,7 @@ export default {
             );
 
             strs = `'${item.name}':helper.input_radio('${item.title}',${opt},'${item.default}')`;
-          }else{
+          } else {
             strs = `'${item.name}':helper.input_text('${item.title}','${item.default}')`;
           }
         } else if (item.type == "boolean") {
@@ -188,7 +170,7 @@ export default {
       });
       saveAs(blob, fileName.value);
     };
-    return { data, code, make, codeStr, execDownload, isContainer,files };
+    return { data, code, make, codeStr, execDownload, isContainer, files };
   },
 };
 </script>

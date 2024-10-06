@@ -10,7 +10,7 @@ export default {
         slots: {
 
         },
-      
+
         props: {},
         ctrlBtn: true,
         attrs: {

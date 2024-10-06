@@ -39,8 +39,8 @@ const formConf = {
 
 
 const elements = {
-    base: {eles: [], title: "基本组件"},
-    form: {eles: [], title: "表单组件"},
+    base: { eles: [], title: "基本组件" },
+    form: { eles: [], title: "表单组件" },
 };
 
 let files =

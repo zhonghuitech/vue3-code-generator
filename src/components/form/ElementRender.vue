@@ -2,29 +2,17 @@
   <template v-if="formItemSet">
     <el-form-item v-bind="formItemSet" :style="hightLight(__ID)">
       <template v-if="ctrlBtn">
-        <span
-          class="tool-btn tool-btn-del _btn"
-          @click="deleteItem(__ID)"
-          title="删除"
-        >
-         <el-icon><delete /></el-icon>
+        <span class="tool-btn tool-btn-del _btn" @click="deleteItem(__ID)" title="删除">
+          <el-icon>
+            <delete />
+          </el-icon>
         </span>
-        <span
-          class="tool-btn tool-btn-copy _btn"
-          @click="copyItem(__ID)"
-          title="复制"
-        >
+        <span class="tool-btn tool-btn-copy _btn" @click="copyItem(__ID)" title="复制">
           <el-icon><copy-document /></el-icon>
         </span>
       </template>
 
-      <component
-        :is="tag"
-        v-bind="attrs"
-        v-on="events"
-        :modelValue="vm"
-        @update:modelValue="editModelValue"
-      >
+      <component :is="tag" v-bind="attrs" v-on="events" :modelValue="vm" @update:modelValue="editModelValue">
         <template v-for="(son, index) in childrens" :key="'son' + index">
           <element-render :currentID="currentID" v-bind="son"> </element-render>
         </template>
@@ -38,12 +26,7 @@
   <template v-else>
     <component :is="tag" v-bind="attrs" v-model="vm" v-on="events" :style="hightLight(__ID)">
       <template v-for="(son, index) in childrens" :key="'son' + index">
-        <element-render
-          :currentID="currentID"
-          v-bind="son"
-          @update="changeValue"
-          @click.stop="selected(son.__ID)"
-        >
+        <element-render :currentID="currentID" v-bind="son" @update="changeValue" @click.stop="selected(son.__ID)">
         </element-render>
       </template>
       <template v-for="(val, name) in slots" v-slot:[name]>
@@ -56,10 +39,10 @@
 <script>
 import { defineComponent, computed, ref, watch, inject, reactive } from "vue";
 import InputIcon from "@/components/form/InputIcon.vue";
-import {CopyDocument,Delete}  from  "@element-plus/icons-vue";;
+import { CopyDocument, Delete } from "@element-plus/icons-vue";;
 export default defineComponent({
   name: "element-render",
-  components: { InputIcon ,CopyDocument,Delete},
+  components: { InputIcon, CopyDocument, Delete },
 
   emits: ["update", "updateChild", "rm", "deleteItem", "copyItem"],
   props: {

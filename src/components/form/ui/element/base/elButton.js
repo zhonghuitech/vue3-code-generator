@@ -10,7 +10,7 @@ export default {
         __text: helper.input_text("按钮文本", "提交"),
         slots: {
         },
-        props:{},
+        props: {},
         attrs: {
                 fieldName: helper.input_text("字段名", "字段名"),
                 'size': helper.input_radio('尺寸', [{
