@@ -4,6 +4,12 @@
 ## 在线预览 
 [地址](https://yupk.github.io/vue3-code-generator/)
 
+## 本地开发
+```
+pnpm install
+pnpm dev
+```
+
 ## 使用方法
 
 main.js
