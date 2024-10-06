@@ -2,7 +2,7 @@
   <el-dialog v-model="dialogTableVisible" width="980px" @open="scrollToActive">
     <div slot="title">
       选择图标
-      <el-input v-model="key" size="mini" :style="{ width: '260px' }" placeholder="请输入图标名称" prefix-icon="el-icon-search"
+      <el-input v-model="key" :style="{ width: '260px' }" placeholder="请输入图标名称" prefix-icon="el-icon-search"
         clearable />
     </div>
 
@@ -14,7 +14,7 @@
     </ul>
   </el-dialog>
 
-  <el-input v-model="setIcon" placeholder="请输入内容" size="mini">{{ dialogTableVisible }}
+  <el-input v-model="setIcon" placeholder="请输入内容">{{ dialogTableVisible }}
     <template #append>
       <el-button :icon="setIcon" @click="dialogTableVisible = true">选择</el-button>
     </template>

@@ -31,7 +31,7 @@
           </el-row>
         </el-form-item>
         <el-form-item>
-          <el-button size="mini" @click.prevent="addItem">添加</el-button>
+          <el-button @click.prevent="addItem">添加</el-button>
         </el-form-item>
       </el-form>
     </el-tab-pane>

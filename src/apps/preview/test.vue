@@ -1,5 +1,5 @@
 <template>
-<el-form v-model="formData" size="medium" label-position="right" label-width="666545" inline="true" :rules="rules">
+<el-form v-model="formData" size="default" label-position="right" label-width="666545" inline="true" :rules="rules">
     <el-input v-model="formData.field_AmxPZ" placeholder="请输入" type="password">
     </el-input>
     <el-select v-model="formData.field_cfQ9w" size="large" collapse-tags="true" filterable="true" popper-append-to-body="true">

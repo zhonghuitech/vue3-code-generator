@@ -5,11 +5,11 @@
     </el-form-item>
     <template v-if="openRule">
       <el-form-item>
-        <el-button size="mini" @click.prevent="addItem">添加规则</el-button>
+        <el-button @click.prevent="addItem">添加规则</el-button>
       </el-form-item>
       <template v-for="(item, index) in data[fieldName]" :key="'c' + index">
         <el-card v-if="'pattern' in item" style="margin: 10px 5px" class="_box">
-          <el-form-item label="表达式" size="mini">
+          <el-form-item label="表达式">
             <el-autocomplete v-model="item.pattern" :fetch-suggestions="querySearch" class="inline-input"
               placeholder="输入验证正则表达式" @select="handleSelect(item)">
               <template #default="{ item }">
@@ -17,11 +17,11 @@
               </template>
             </el-autocomplete>
           </el-form-item>
-          <el-form-item label="错误提示" size="mini">
+          <el-form-item label="错误提示">
             <el-input v-model="item.message"></el-input>
           </el-form-item>
 
-          <el-form-item label="触发事件" size="mini">
+          <el-form-item label="触发事件">
             <el-input v-model="item.trigger"></el-input>
           </el-form-item>
 
@@ -36,7 +36,7 @@
     </template>
     <!--    <template v-if="fieldName in data && data[fieldName].length > 0">-->
     <!--      <el-form-item>-->
-    <!--        <el-button size="mini" @click.prevent="save" ref="btn">保存</el-button>-->
+    <!--        <el-button @click.prevent="save" ref="btn">保存</el-button>-->
     <!--      </el-form-item>-->
     <!--    </template>-->
   </el-form>
@@ -44,7 +44,7 @@
 <script>
 import { deepClone, randFieldId } from "@/utils/func.js";
 import { CircleCloseFilled } from "@element-plus/icons-vue";
-import { defineComponent, nextTick, reactive, ref, toRaw, watch, computed } from "vue";
+import { defineComponent, nextTick, reactive, ref, toRaw, watch, watchEffect, computed } from "vue";
 
 export default defineComponent({
   name: "RulesInput",
@@ -105,7 +105,7 @@ export default defineComponent({
     };
 
 
-    watch([data, required], () => {
+    watchEffect([data, required], () => {
       save();
     })
     const querySearch = function (qs, cb) {

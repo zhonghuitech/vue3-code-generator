@@ -1,82 +1,82 @@
 <template>
-  <div class="container">
-    <div class="left-board">
-      <div class="logo-wrapper">
-        <div class="logo">
-          Vue3 Form Generator
-          <a class="github" href="https://github.com/yupk/form-generator-vue3" target="_blank">
-            <img src="https://github.githubassets.com/pinned-octocat.svg" alt />
-          </a>
+  <div>
+    <div class="container">
+      <div class="left-board">
+        <div class="logo-wrapper">
+          <div class="logo">
+            Vue3 Form Generator
+            <a class="github" href="https://github.com/yupk/form-generator-vue3" target="_blank">
+              <img src="https://github.githubassets.com/pinned-octocat.svg" alt />
+            </a>
+          </div>
         </div>
-      </div>
-      <el-scrollbar class="left-scrollbar">
-        <!-- {{generate(settings)}} -->
+        <el-scrollbar class="left-scrollbar">
+          <!-- {{generate(settings)}} -->
 
-        <page-panel @addComponent="(el) => {
+          <page-panel @addComponent="(el) => {
             settings.drawingList.push(el);
           }
-          "></page-panel>
+            "></page-panel>
 
-        <div class="components-list"></div>
-      </el-scrollbar>
-    </div>
-
-    <div class="center-board">
-      <div class="action-bar">
-
-        <div class="btn" @click="preViewCode">
-          <el-icon>
-            <video-play />
-          </el-icon>生成
-        </div>
-        <div class="btn" @click="clearn()">
-          <el-icon>
-            <delete />
-          </el-icon>清空
-        </div>
-
-        <div class="btn">
-          <el-switch v-model="device" active-text="电脑模式" inactive-text="手机模式" active-value="pc"
-            inactive-value="mobile" />
-
-        </div>
-
-        <div class="btn">
-          <el-switch v-model="preview" active-text="开发模式" inactive-text="预览模式" active-value=""
-            inactive-value="preview" />
-
-        </div>
+          <div class="components-list"></div>
+        </el-scrollbar>
       </div>
-      <el-scrollbar class="center-scrollbar" :class="[device, preview]">
-        <page-drawer :model-value="settings" @update:model-value="update"></page-drawer>
-      </el-scrollbar>
+
+      <div class="center-board">
+        <div class="action-bar">
+
+          <div class="btn" @click="preViewCode">
+            <el-icon>
+              <video-play />
+            </el-icon>生成
+          </div>
+          <div class="btn" @click="clearn()">
+            <el-icon>
+              <delete />
+            </el-icon>清空
+          </div>
+
+          <div class="btn">
+            <el-switch v-model="device" active-text="电脑模式" inactive-text="手机模式" active-value="pc"
+              inactive-value="mobile" />
+
+          </div>
+
+          <div class="btn">
+            <el-switch v-model="preview" active-text="开发模式" inactive-text="预览模式" active-value=""
+              inactive-value="preview" />
+
+          </div>
+        </div>
+        <el-scrollbar class="center-scrollbar" :class="[device, preview]">
+          <page-drawer :model-value="settings" @update:model-value="update"></page-drawer>
+        </el-scrollbar>
+      </div>
+
+      <page-setting :model-value="settings" @update:model-value="update" style="padding-left: 10px"></page-setting>
     </div>
 
-    <page-setting :model-value="settings" @update:model-value="update" style="padding-left: 10px"></page-setting>
+    <el-drawer v-model="showCode" direction="rtl" size="50%" style="height:100%">
+      <template #header>
+        <div class="preview-action-bar">
+          <div class="btn" @click="execDownload('test.vue')">
+            <el-icon>
+              <download />
+            </el-icon>下载代码
+          </div>
+
+          <div class="btn" @click="ClipboardWrite()">
+            <el-icon>
+              <document-copy />
+            </el-icon>复制代码
+          </div>
+        </div>
+      </template>
+      <el-scrollbar height="600px" v-highlight>
+        <pre> <code> {{ generate(settings) }}</code></pre>
+      </el-scrollbar>
+    </el-drawer>
   </div>
-
-  <el-drawer v-model="showCode" direction="rtl" size="50%" style="height:100%">
-    <template v-slot:title>
-      <div class="preview-action-bar">
-        <div class="btn" @click="execDownload('test.vue')">
-          <el-icon>
-            <download />
-          </el-icon>下载代码
-        </div>
-        
-        <div class="btn" @click="ClipboardWrite()">
-          <el-icon>
-            <document-copy />
-          </el-icon>复制代码
-        </div>
-      </div>
-    </template>
-    <el-scrollbar height="600px" v-highlight>
-      <pre>
-    <code> {{ generate(settings) }}</code>
-  </pre>
-    </el-scrollbar>
-  </el-drawer>
 </template>
 
 <script>

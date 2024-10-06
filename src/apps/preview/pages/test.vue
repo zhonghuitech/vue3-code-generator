@@ -1,5 +1,5 @@
 <template>
-    <el-form :model="formData" size="medium" label-position="top" label-width="100" :rules="rules">
+    <el-form :model="formData" size="default" label-position="top" label-width="100" :rules="rules">
         <el-scrollbar height="100" tag="div" min-size="20" component="el-scrollbar" group="componentsGroup"
             class="drag-wrapper box" style="margin-left:0px;margin-right:0px" animation="340">
         </el-scrollbar>
@@ -34,10 +34,10 @@
                 animation="340">
                 <el-form-item :show-label="true" label-width="100" label="单选框" prop="field_tDuuI">
                     <el-radio-group v-model="formData.field_tDuuI" :border="true" size="medium">
-                        <el-radio-button label="1">
+                        <el-radio-button value="1">
                             <template slot="default">选项一</template>
                         </el-radio-button>
-                        <el-radio-button label="2">
+                        <el-radio-button value="2">
                             <template slot="default">选项二</template>
                         </el-radio-button>
                     </el-radio-group>
@@ -47,10 +47,10 @@
                 animation="340">
                 <el-form-item :show-label="true" label-width="100" label="单选框" prop="field_Zt6al">
                     <el-radio-group v-model="formData.field_Zt6al" :border="true" size="medium">
-                        <el-radio-button label="1">
+                        <el-radio-button value="1">
                             <template slot="default">选项一</template>
                         </el-radio-button>
-                        <el-radio-button label="2">
+                        <el-radio-button value="2">
                             <template slot="default">选项二</template>
                         </el-radio-button>
                     </el-radio-group>
@@ -106,10 +106,10 @@
         </el-form-item>
         <el-form-item :show-label="true" label-width="100" label="单选框" prop="field_UBqgb">
             <el-radio-group v-model="formData.field_UBqgb" :border="true" size="medium">
-                <el-radio-button label="1">
+                <el-radio-button value="1">
                     <template slot="default">选项一</template>
                 </el-radio-button>
-                <el-radio-button label="2">
+                <el-radio-button value="2">
                     <template slot="default">选项二</template>
                 </el-radio-button>
             </el-radio-group>

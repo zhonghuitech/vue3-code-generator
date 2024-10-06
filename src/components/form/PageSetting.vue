@@ -6,7 +6,7 @@
         <div class="field-box">
           <el-scrollbar class="right-scrollbar">
             <template v-if="currentItem">
-              <el-form ref="form2" size="mini" label-position="top" label-width="80px">
+              <el-form ref="form2" label-position="top" label-width="80px">
                 <el-form-item v-for="(func, title) in currentItem.actions" :key="title">
                   <el-button @click="func(currentItem)">{{ title }}</el-button>
                 </el-form-item>
@@ -21,7 +21,7 @@
               <rules-input :openRule="currentItem.__openRules" v-if="currentItem.tag !== 'draggable'"
                 :fieldName="currentItem.attrs.fieldName.__val__" v-model="modelValue.formConf.__rules"></rules-input>
 
-              <el-button type="primary" size="mini" @click="deleteItem(currentItem.__ID)">删除
+              <el-button type="primary" @click="deleteItem(currentItem.__ID)">删除
               </el-button>
             </template>
           </el-scrollbar>
@@ -31,12 +31,12 @@
       <el-tab-pane label="表单属性" name="form">
         <div class="field-box">
           <el-scrollbar class="right-scrollbar">
-            <el-form ref="form" size="mini" label-position="top" label-width="80px">
+            <el-form ref="form" label-position="top" label-width="80px">
               <template v-for="(item, index) in formConf" :key="index">
                 <!-- {{index}} -->
                 <element-render @update="(e) => {
-                    modelValue.formConf.attrs[index]['__val__'] = e;
-                  }
+                  modelValue.formConf.attrs[index]['__val__'] = e;
+                }
                   " v-bind="eleRenderFormat(item)"></element-render>
 
               </template>

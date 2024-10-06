@@ -3,7 +3,7 @@
     <el-dialog v-model="visible" width="980px" @open="onOpen" @close="onClose">
       <div slot="title">
         选择图标
-        <el-input v-model="key" size="mini" :style="{ width: '260px' }" placeholder="请输入图标名称"
+        <el-input v-model="key" :style="{ width: '260px' }" placeholder="请输入图标名称"
           prefix-icon="el-icon-search" clearable />
       </div>
       <ul ref="iconWrap" class="icon-ul">
