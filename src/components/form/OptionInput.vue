@@ -24,14 +24,15 @@
                 </el-form-item>
               </el-col>
               <el-col :span="1" :offset="1" @click="delItem(index)">
-                <i class="el-icon-delete"></i>
+                <el-icon style="cursor: pointer;color: #f56c6c;">
+                  <Remove />
+                </el-icon>
               </el-col>
-
             </template>
           </el-row>
         </el-form-item>
         <el-form-item>
-          <el-button @click.prevent="addItem">添加</el-button>
+          <el-button @click.prevent="addItem" type="primary" link>添加选项</el-button>
         </el-form-item>
       </el-form>
     </el-tab-pane>
@@ -62,11 +63,13 @@
 <script>
 import { ref, defineComponent, watch, reactive } from "vue";
 import { deepClone } from "@/utils/func.js";
+import { Remove } from "@element-plus/icons-vue";
+
 export default defineComponent({
   name: "OptionInput",
   emits: ["update:modelValue"],
   props: ["modelValue", "defaultvalue"],
-
+  components: { Remove },
   setup(props, ctx) {
     let modelValue = props.modelValue || {};
 
