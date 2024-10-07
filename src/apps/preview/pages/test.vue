@@ -134,7 +134,7 @@
             <el-switch v-model="formData.field_tpKAa" :validate-event="true">
             </el-switch>
         </el-form-item>
-        <el-form-item :show-label="true" label-width="100" label="select选择" prop="field_SGf2G">
+        <el-form-item :show-label="true" label-width="100" label="下拉选择" prop="field_SGf2G">
             <el-select v-model="formData.field_SGf2G" size="large" :popper-append-to-body="true">
                 <el-option value="1" label="选项一">
                 </el-option>

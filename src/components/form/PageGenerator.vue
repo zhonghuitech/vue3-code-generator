@@ -162,11 +162,11 @@ export default defineComponent({
     };
 
     /**
-     * 选中高亮亮
+     * 选中高亮
      */
     const hightLight = function (s) {
       if (settings.current == s) {
-        return { border: "1px solid #ffc92fde", backgroundColor: "#e4ff0024" };
+        return { border: "1px dashed #f6f7ff", backgroundColor: "#f6f7ff" , "border-radius": "6px", padding:"1px"};
       }
       return {};
     };

@@ -6,7 +6,7 @@
       group="componentsGroup" @change="onEnd">
       <template v-for="(item, index) in conf.drawingList" :key="item.__ID + index">
         <!-- {{item}} -->
-        <element-render @click.stop="selected(item.__ID)" @update="changeValue" :currentID="modelValue.current"
+        <element-render @click.stop="selected(item.__ID)" @update="changeValue" :currentID="modelValue.current" style="padding-top: 10px;padding-bottom: 10px;"
           v-bind="item" class="item-tool-box"></element-render>
       </template>
 

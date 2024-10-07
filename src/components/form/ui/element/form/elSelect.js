@@ -19,7 +19,7 @@ const elOption = {
 
 export default {
         tag: "el-select",
-        name: "select选择",
+        name: "下拉选择",
         __openRules: false,
         tagIcon: "select",
         ctrlBtn: true,
@@ -30,7 +30,7 @@ export default {
         formItem: {
                 showLabel: helper.input_boolean("显示 label", true),
                 labelWidth: helper.input_number("label 宽", 100),
-                label: helper.input_text("label", 'select选择',),
+                label: helper.input_text("label", '下拉选择',),
         },
         attrs: {
                 fieldName: helper.input_text("字段名", "字段名"),
