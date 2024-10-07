@@ -16,7 +16,7 @@ const optParseHandles = {
             let son = {};
             son.tag = _c.__opt__.tag;
             son.attrs = {
-                label: item.value,
+                value: item.value,
             };
             son.slots = {
                 default: item.key,

@@ -75,7 +75,8 @@ export default defineComponent({
     const dynamicData = reactive(deepClone(props.modelValue.dynamicData));
 
     const addItem = function () {
-      staticData.push({ key: "", value: "" });
+      const cont = staticData.length + 1
+      staticData.push({ key: "选项" + cont, value: "" + cont });
     };
 
     const delItem = function (index) {
@@ -83,7 +84,7 @@ export default defineComponent({
     };
 
     watch([dynamicData, staticData, current], () => {
-      console.log(current.value);
+      // console.log(current.value);
       ctx.emit("update:modelValue", {
         type: current.value,
         tag: props.modelValue.tag,

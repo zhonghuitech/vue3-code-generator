@@ -244,7 +244,6 @@ export default defineComponent({
     }
 
     watch(settings, () => {
-      console.log(settings);
       localStorage.setItem("settings", JSON.stringify(settings));
     });
 

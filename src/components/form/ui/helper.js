@@ -101,10 +101,10 @@ const optValue = function (tag) {
         type: 'static',
         tag: tag,
         staticData: [{
-            key: "选项一",
+            key: "选项1",
             value: 1
         }, {
-            key: "选项二",
+            key: "选项2",
             value: 2
         }],
         dynamicData: {

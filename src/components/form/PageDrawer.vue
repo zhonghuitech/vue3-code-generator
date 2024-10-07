@@ -43,7 +43,6 @@ export default defineComponent({
       context.emit("update:modelValue", props.modelValue, e.added);
     };
     const conf = initRender(props.modelValue);
-
     const formModel = reactive({});
 
     let formEleKeys = [];

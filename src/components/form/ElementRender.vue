@@ -80,7 +80,7 @@ export default defineComponent({
 
     const vm = ref(props.defaultvalue);
 
-    console.log(props.defaultvalue, "props.defaultvalue");
+    // console.log(props.defaultvalue, "props.defaultvalue");
 
     watch(vm, () => {
       if (props.tag == "draggable") {
