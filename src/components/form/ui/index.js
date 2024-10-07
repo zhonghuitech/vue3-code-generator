@@ -1,10 +1,10 @@
 import helper from "@/components/form/ui/helper.js";
 
-
 // 表单属性【右面板】
 const formConf = {
     tag: "el-form",
-    props: {}, childrens: [],
+    props: {},
+    childrens: [],
     __rules: {},
     attrs: {
         __formRef: helper.input_text("表单名", 'refForm'),
@@ -37,26 +37,19 @@ const formConf = {
     },
 }
 
-
 const elements = {
     base: { eles: [], title: "基本组件" },
     form: { eles: [], title: "表单组件" },
 };
 
-let files =
-    import.meta.glob('./element/form/*.js', { eager: true });
-
-
+let files = import.meta.glob('./element/form/*.js', { eager: true });
 for (const key in files) {
     elements.form.eles.push(files[key].default)
 }
 files = import.meta.glob('./element/base/*.js', { eager: true });
-
-
 for (const key in files) {
     elements.base.eles.push(files[key].default)
 }
-
 
 export {
     elements,

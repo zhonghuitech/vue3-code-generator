@@ -7,7 +7,6 @@ export default {
     tagIcon: 'checkbox',
     __ID: '',
     defaultvalue: [1, 2],
-
     formItem: {
         showLabel: helper.input_boolean("显示 label", true),
         labelWidth: helper.input_number("label 宽", 100),
@@ -30,13 +29,9 @@ export default {
         }], "default"),
 
     },
-
     __opt__: helper.input_opt("选择项", 'el-checkbox-button'),
     props: {
-
-
     },
     childrens:[],
     ctrlBtn: true,
-
 }

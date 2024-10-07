@@ -13,10 +13,7 @@
         <el-scrollbar class="left-scrollbar">
           <!-- {{generate(settings)}} -->
 
-          <page-panel @addComponent="(el) => {
-            settings.drawingList.push(el);
-          }
-            "></page-panel>
+          <page-panel @addComponent="addComponentAction"></page-panel>
 
           <div class="components-list"></div>
         </el-scrollbar>
@@ -39,13 +36,11 @@
           <div class="btn">
             <el-switch v-model="device" active-text="电脑模式" inactive-text="手机模式" active-value="pc"
               inactive-value="mobile" />
-
           </div>
 
           <div class="btn">
             <el-switch v-model="preview" active-text="开发模式" inactive-text="预览模式" active-value=""
               inactive-value="preview" />
-
           </div>
         </div>
         <el-scrollbar class="center-scrollbar" :class="[device, preview]">
@@ -140,10 +135,19 @@ export default defineComponent({
     };
     const settings = reactive(loadSetting());
 
-    const update = function (e) {
+    const update = function (e, ele) {
+      if (ele && ele.element) {
+        // 选中当前
+        settings.current = ele.element.__ID
+      }
       settings.formConf = e.formConf;
       settings.drawingList = e.drawingList;
     };
+
+    const addComponentAction = function (el) {
+      settings.drawingList.push(el);
+      settings.current = el.__ID;
+    }
 
     const selected = function (s) {
       settings.current = s;
@@ -183,8 +187,6 @@ export default defineComponent({
     const deleteItem = function (_id) {
       _del(settings.drawingList, _id);
     };
-
-
 
     const _copy = function (items, _id) {
       for (let item of items) {
@@ -226,14 +228,11 @@ export default defineComponent({
     };
 
     const preViewCode = function () {
-
       showCode.value = true;
-
     }
 
     const { toClipboard } = useClipboard()
     const ClipboardWrite = async () => {
-
       const codeStr = generate(settings);
       try {
         await toClipboard(codeStr);
@@ -264,7 +263,9 @@ export default defineComponent({
       generate,
       execDownload,
       showCode,
-      preViewCode, ClipboardWrite
+      preViewCode,
+      ClipboardWrite,
+      addComponentAction
     };
   },
 });

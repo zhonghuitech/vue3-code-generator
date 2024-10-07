@@ -9,13 +9,11 @@ const cloneItem = function (item) {
     return newitem;
 }
 const input_text = function (name, val) {
-
     return {
         __val__: val,
         input_type: "input_text",
         label: name
     }
-
 }
 
 const input_slot_text = function (name, val) {
@@ -25,39 +23,32 @@ const input_slot_text = function (name, val) {
 }
 
 const input_number = function (name, val) {
-
     return {
         __val__: val,
         input_type: "input_number",
         label: name
     }
-
 }
 
 const input_boolean = function (name, val) {
-
     return {
         __val__: val,
         input_type: "input_boolean",
         label: name
     }
-
 }
 
 
 const input_icon = function (name, val) {
-
     return {
         __val__: val,
         input_type: "input_icon",
         label: name
     }
-
 }
 
 
 const input_range = function (label, min, max, val) {
-
     return {
         __val__: val,
         input_type: "input_range",
@@ -65,7 +56,6 @@ const input_range = function (label, min, max, val) {
         min,
         max
     }
-
 }
 
 
@@ -85,8 +75,8 @@ export const input_radio = function (value, opts, val) {
         opts,
         __child
     }
-
 }
+
 const input_select = function (value, opts, val) {
     const __child = {
         tag: "el-option",
@@ -95,7 +85,6 @@ const input_select = function (value, opts, val) {
             "value": "label"
         }
     }
-
 
     return {
         __val__: val,
@@ -108,7 +97,6 @@ const input_select = function (value, opts, val) {
 }
 
 const optValue = function (tag) {
-
     return {
         type: 'static',
         tag: tag,
@@ -129,11 +117,10 @@ const optValue = function (tag) {
 
 }
 const input_opt = function (value, tag) {
-
     return {
         __val__: optValue(tag),
         input_type: "input_opt",
-        value
+        label: value
     }
 }
 

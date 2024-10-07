@@ -15,6 +15,7 @@ export function randFieldId() {
 
     return `field_${randomString(5)}`;
 }
+
 // 深拷贝对象
 export function deepClone(obj) {
     const _toString = Object.prototype.toString

@@ -40,7 +40,7 @@ export default defineComponent({
     const selected = inject("selected");
     const updateDefaultValue = inject("updateDefaultValue");
     const onEnd = function (e) {
-      context.emit("update:modelValue", props.modelValue);
+      context.emit("update:modelValue", props.modelValue, e.added);
     };
     const conf = initRender(props.modelValue);
 

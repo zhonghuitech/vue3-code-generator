@@ -1,4 +1,4 @@
-import {deepClone, randFieldId} from "@/utils/func.js";
+import { deepClone, randFieldId } from "@/utils/func.js";
 
 export default function (props) {
     function copy(origin) {
@@ -19,5 +19,5 @@ export default function (props) {
         //console.log(obj);
     };
 
-    return {copy, onEnd};
+    return { copy, onEnd };
 }
